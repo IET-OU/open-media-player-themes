@@ -6,6 +6,7 @@
   "type": "library",
   "license": "MIT",
   "minimum-stability": "dev",
+  "time": "2012-04-11",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer" },
     { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "http://devine.co.uk/peter/" }
