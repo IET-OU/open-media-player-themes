@@ -38,7 +38,7 @@ if(typeof jQuery=='undefined'){
   else:
 ?>
 <script src="<?php player_res_url($this->theme->js_min) ?>"></script>
-<?php endif; ?>	
+<?php endif; ?>
 
 <?php if ($this->config->item('debug') > OUP_DEBUG_MIN): ?>
 <link rel="stylesheet" href="<?php player_res_url($engine_path . 'src/css/mediaelementplayer.css') ?>" />
@@ -77,6 +77,10 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
   background: #f4f4f4;
 }
 /*-*/
+
+.p-android .mejs-offscreen {
+  display: none;
+}
 </style>
 
 <?php
@@ -84,7 +88,7 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
   $this->load->view('ouplayer/oup_analytics');
 ?>
 
-<body class="mode-<?php echo $mode ?>">
+<body class="mode-<?php echo $mode ?> p-<?php echo $this->agent->platform_code() ?>">
 
 
 <div id="oup-no-flv" class="error hide" style="display:none">
@@ -135,8 +139,8 @@ body.mode-popup{ margin:0; background:#f8f8f8; }
 
 <?php /*
 <!-- simple single file method -->
-<video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4" 
-	id="player1" poster="../media/echo-hereweare.jpg" 
+<video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4"
+	id="player1" poster="../media/echo-hereweare.jpg"
 	controls="controls" preload="none"></video>
 */ ?>
 

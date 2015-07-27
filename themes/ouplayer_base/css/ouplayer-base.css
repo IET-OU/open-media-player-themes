@@ -37,6 +37,9 @@ h1 {
 	margin-top:1px !important;
 	}
 
+.p-android .mejs-offscreen {
+  display: none;
+  }
 
 .mejs-container {
 	position:fixed; /*Not absolute. */
@@ -338,6 +341,7 @@ body[class *= trident] .mejs-container .mejs-controls .oup-mejs-stream {
 .ctx-Youtube_Player .mejs-controls .oup-display { display: none; }
 .ctx-Youtube_Player .mejs-controls .oup-mute { margin-right: 5px; }
 
+.ctx-Youtube_Player.is-mobile #oup-noflash { display: none !important; }
 
 .mejs-captions-text{ font-size:1.4em; }
 .oup.width-small .mejs-captions-text{ font-size:1.1em; padding:1px 3px; }
