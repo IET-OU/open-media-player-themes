@@ -41,6 +41,27 @@ h1 {
   display: none;
   }
 
+/*Accessibility [Bug: #48] */
+.ignore-color .mejs-playpause-button.mejs-play button:after {
+  content: "\25b6"; /* http://unicode-table.com/en/blocks/geometric-shapes/ */
+  /* NOT: \2BC8 - black medium right-pointing arrow centred, Misc. symbols & arrows http://www.unicode.org/charts/PDF/U2B00.pdf*/
+  font-size: 20px;
+  /*font-family: arial, sans-serif; /* 'Arial Unicode MS', 'Lucida Grande', 'Lucida Sans', "Lucida Sans Unicode"*/;
+}
+.ignore-color .mejs-playpause-button.mejs-pause button:after {
+  content: "\25ae \25ae";
+  font-size: 14px;
+}
+.ignore-color .mejs-captions-button button:after {
+  content: "cc";
+  font-size: 14px;
+}
+.ignore-color .mejs-controls .mejs-transcript-button button:after {
+  content: "T";
+  font-size: 11px;
+}
+
+
 .mejs-container {
 	position:fixed; /*Not absolute. */
 	top:0;
