@@ -188,6 +188,10 @@ h1 {
 	display:none;
 	}
 
+.mtype-audio .mejs-container .mejs-layers .mejs-poster {
+	display: block !important;
+}
+
 /* Title panel.
 */
 /*.mejs-container .mejs-controls*/ .mejs-title-panel {
