@@ -61,6 +61,43 @@ h1 {
   font-size: 11px;
 }
 
+.ignore-color .mejs-controls .mejs-popout-link a:after {
+  content: "P";
+  font-size: 11px;
+}
+.ignore-color .mejs-controls .mejs-popout-link a {
+  cursor: alias;
+}
+.ignore-color .mejs-controls .mejs-fullscreen-button button:after {
+  content: "\2927"; /* North West Arrow and North East Arrow / Supplemental Arrows-B */
+  font-size: 11px;
+}
+.ignore-color .mejs-controls .mejs-options-button button {
+  cursor: help;
+}
+.ignore-color .mejs-controls .oup-volume-widget button.oup-quieter:after {
+  /*content: "\2013"; /* en dash */
+  content: "\2043"; /* hyphen bullet */
+  font-size: 14px;
+}
+.ignore-color .mejs-controls .oup-volume-widget button.oup-quieter {
+  cursor: s-resize;
+}
+.ignore-color .mejs-controls .oup-volume-widget button.oup-louder:after {
+  content: "+";
+  font-size: 14px;
+}
+.ignore-color .mejs-controls .oup-volume-widget button.oup-louder {
+  cursor: n-resize;
+}
+.ignore-color .mejs-container .mejs-layers .mejs-poster img {
+	display: block;
+}
+.ignore-color .mejs-container .mejs-layers .mejs-poster {
+	background-image: none;
+}
+/*End accessibility [Bug: #48] */
+
 
 .mejs-container {
 	position:fixed; /*Not absolute. */
