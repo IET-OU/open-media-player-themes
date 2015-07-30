@@ -5,6 +5,7 @@
 /**
 * @preserve|
 *| Open Media Player
+*| License: MIT
 *| Copyright 2011-2015 The Open University.
 *|
 *| Author: Nick Freear.
@@ -13,6 +14,7 @@
 
 /*!
 * Open Media Player
+* License: MIT
 * Copyright 2011-2015 The Open University.
 *
 * Author: Nick Freear.
