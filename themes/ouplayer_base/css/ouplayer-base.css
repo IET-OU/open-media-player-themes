@@ -405,6 +405,17 @@ body[class *= trident] .mejs-container .mejs-controls .oup-mejs-stream {
 .ctx-Youtube_Player .mejs-controls .oup-mute { margin-right: 5px; }
 
 .ctx-Youtube_Player.is-mobile #oup-noflash { display: none !important; }
+.ctx-Youtube_Player .mejs-container .mejs-poster {
+  background-image: none !important;
+}
+
+/* Initial fix - hide logo in YouTube [Bug: #51] */
+.ctx-Youtube_Player .mejs-title-panel .logo {
+  display: none;
+}
+.ctx-Youtube_Player .mejs-title-panel {
+  min-height: 2.8em;
+}
 
 .mejs-captions-text{ font-size:1.4em; }
 .oup.width-small .mejs-captions-text{ font-size:1.1em; padding:1px 3px; }
