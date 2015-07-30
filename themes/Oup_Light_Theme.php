@@ -3,9 +3,10 @@
 /**
  * Open Media Player Light 2012 theme.
  *
- * This theme extends the Open Media  Player base theme and adds the visuals, colours and so on.
+ * This theme extends the Open Media Player base theme and adds the visuals, colours and so on.
  *
- * @copyright Copyright 2012 The Open University.
+ * @license   http://iet-ou.mit-license.org/2011 MIT
+ * @copyright Copyright 2012-2015 The Open University.
  * @author Peter Devine/LTS 2012-03-08 (visuals, CSS)
  * @author Nick Freear 2012-03-30 (CSS, PHP)
  */

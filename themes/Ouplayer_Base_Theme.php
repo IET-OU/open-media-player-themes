@@ -5,7 +5,8 @@
  *
  * This theme extends the Mediaelement default theme, and adds Javascript features and views.
  *
- * @copyright Copyright 2012 The Open University.
+ * @license   http://iet-ou.mit-license.org/2011 MIT
+ * @copyright Copyright 2012-2015 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
 

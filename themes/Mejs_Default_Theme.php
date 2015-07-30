@@ -6,7 +6,8 @@
  * A thin PHP wrapper around John Dyer's Mediaelement library.
  * @link http://mediaelementjs.com/
  *
- * @copyright Copyright 2012 The Open University.
+ * @license   http://iet-ou.mit-license.org/2011 MIT
+ * @copyright Copyright 2012-2015 The Open University.
  * @author N.D.Freear, 20 March 2012.
  */
 
