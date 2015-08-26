@@ -38,7 +38,7 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
         $this->features .= ',oup_tooltip';
 
         // Experimental feature: HTML5 postMessage.
-        if ($this->CI->input->get('postmessage')) {
+        if ($this->get_param('postmessage')) {
             $this->features .= ',oup_postmessage';
         }
     }
@@ -54,8 +54,7 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
         $mode = get_class($this->CI);
 
         // The foreground colour name, from a URL parameter.
-        $rgb = $this->CI->input->get('rgb');
-        $this->rgb = $rgb ? $rgb : 'ouvle-default-blue';
+        $this->rgb = $this->get_param('rgb', 'ouvle-default-blue');
 
         // Bug #1324, https://gist.github.com/2291035 --? /(ouvle-[a-z]+|button-normal)/
         $RE = 'default-blue|orange|dark-blue|green|grey|purple|pink|dark-red'; #'|button-normal'
@@ -67,7 +66,7 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
 
 
         // Bug #1377, Experimental: custom/ transparent player background color.
-        $bg = $this->CI->input->get('background');
+        $bg = $this->get_param('background');
         $bg_options = explode('|', 'transparent|black|white|beige');
         if ('Embed' == $mode && $bg && in_array($bg, $bg_options)) {
             $this->background = $bg;

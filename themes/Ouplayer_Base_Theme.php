@@ -49,7 +49,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
     {
         parent::__construct();
 
-        if (! $this->CI->input->is_cli_request()) {
+        if (! $this->is_cli_request()) {
             $this->origin  = $this->CI->agent->referrer();
         }
 
@@ -130,7 +130,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
       // Embed code - uses jQuery-oEmbed plugin or Iframe.
       // http://support.google.com/youtube/bin/answer.py?hl=en&answer=171780&expand=UseHTTPS#HTTPS
         if (! $player->is_player('vle')) {
-            $this->player_embed_code = $this->CI->config->item('player_embed_code');
+            $this->player_embed_code = $this->config_item('player_embed_code');
         }
         if ($this->player_embed_code) {
           // Experimental feature: select/copy embed code.
@@ -143,8 +143,8 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         }
 
         $this->can_play_maybe = $this->canPlayMaybe();
-        $this->js_timeout = $this->config_option('js_timeout', 500);
-        $this->config = $this->config_option('player_js_config', array('z'=>0));
+        $this->js_timeout = $this->config_item('js_timeout', 500);
+        $this->config = $this->config_item('player_js_config', array('z'=>0));
 
       // Bug #1334, VLE caption redirect bug [iet-it-bugs:1477] [ltsredmine:6937] ('Vle_player')
         if (!$player->is_player('podcast') && $player->caption_url) {
@@ -170,7 +170,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
     {
         $this->has_banner = $player->is_player('podcast') || $player->is_player('youtube');
 
-        $param_banner = $this->CI->input->get('banner');
+        $param_banner = $this->get_param('banner');
         $http_referer = $this->CI->input->server('HTTP_REFERER');
         $REGEX = '@:\/\/[^\/]+\.open\.(ac\.uk|edu)\/@';
         if ('0' === $param_banner or preg_match($REGEX, $http_referer)) {

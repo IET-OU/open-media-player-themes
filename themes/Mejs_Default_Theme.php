@@ -85,9 +85,9 @@ class Mejs_Default_Theme extends Media_Player_Theme
      */
     protected function prepare_jslib(& $player)
     {
-        $this->jslib = $this->CI->input->get('jslib');
+        $this->jslib = $this->get_param('jslib');
         if (! $this->jslib) {
-            $this->jslib = $this->CI->config->item('jslib');
+            $this->jslib = $this->config_item('jslib');
         }
 
         if ($this->CI->agent->is_browser('MSIE') || $this->CI->agent->is_mobile()) {
