@@ -17,9 +17,10 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
 {
 
     public $display = 'Open Media Player light (2012)';
-    public $rgb  = 'ouvle-default-blue';
+    public $rgb  = self::DEFAULT_RGB;
     public $background = 'black';
 
+    const DEFAULT_RGB = 'ouvle-default-blue';
 
     public function __construct()
     {
@@ -53,15 +54,18 @@ class Oup_Light_Theme extends Ouplayer_Base_Theme
         // Embed or Popup mode.
         $mode = get_class($this->CI);
 
-        // The foreground colour name, from a URL parameter.
-        $this->rgb = $this->get_param('rgb', 'ouvle-default-blue');
+        // The foreground colour name, from configuration or a URL parameter.
+        $config_rgb = $this->config_item('player_default_theme_rgb', self::DEFAULT_RGB);
+        $this->rgb = $this->get_param('rgb', $config_rgb);
+
+        $this->rgb = str_replace('omp-', 'ouvle-', $this->rgb);
 
         // Bug #1324, https://gist.github.com/2291035 --? /(ouvle-[a-z]+|button-normal)/
         $RE = 'default-blue|orange|dark-blue|green|grey|purple|pink|dark-red'; #'|button-normal'
         if (! preg_match("/^ouvle-($RE)\$/", $this->rgb)) {
           #$this->CI->_error("(theme error) unrecognized value for 'rgb' parameter: ".$this->rgb, 400);
-            $this->CI->_debug("Warning (theme), unrecognized value for 'rgb' color parameter, ". $this->rgb);
-            $this->rgb = 'ouvle-default-blue';
+            $this->_debug("Warning (theme), unrecognized value for 'rgb' color parameter, ". $this->rgb);
+            $this->rgb = self::DEFAULT_RGB;
         }
 
 
