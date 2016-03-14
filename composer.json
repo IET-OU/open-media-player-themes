@@ -5,32 +5,28 @@
   "homepage": "http://iet-ou.github.io/open-media-player/",
   "type": "library",
   "license": "MIT",
-  "minimum-stability": "dev",
+  "minimum-stability": "alpha",
   "time": "2012-04-11",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer" },
     { "name": "Peter Devine (@peterdevinegmd)", "role": "designer", "homepage": "http://devine.co.uk/peter/" }
   ],
   "support": {
+    "issues": "https://github.com/IET-OU/open-media-player/issues",
     "source": "https://github.com/IET-OU/open-media-player-themes"
   },
   "require": {
-    "iet-ou/open-media-player-core": "dev-master"
+    "iet-ou/open-media-player-core": "^2.0"
   },
   "require-dev": {
-    "jakub-onderka/php-parallel-lint": "~0.8"
+    "jakub-onderka/php-parallel-lint": "^0.9.2"
   },
   "autoload": {
     "psr-4": {
       "IET_OU\\Open_Media_Player\\": [ "themes" ]
     }
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/IET-OU/open-media-player-core"
-    }
-  ],
+  "repositories": [],
   "scripts": {
       "grep-ci": "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*"
   }
