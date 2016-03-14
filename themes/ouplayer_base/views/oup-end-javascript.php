@@ -38,11 +38,6 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
   videoHeight:'100%',
 <?php endif; ?>
 
-<?php if ($params->poster_url): ?>
-  // url to poster (to fix iOS 3.x)
-  poster:'<?php echo $params->poster_url ?>',
-<?php endif; ?>
-
   timeAndDurationSeparator:'<span class="sep"> / </span>', <?php // Whitespace outside span causes JS error! [Bug: #40] ?>
 
 
