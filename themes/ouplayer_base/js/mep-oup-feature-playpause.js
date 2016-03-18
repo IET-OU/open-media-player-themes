@@ -12,13 +12,13 @@
 	// PLAY/pause BUTTON
 	$.extend(MediaElementPlayer.prototype, {
 		buildoup_playpause: function (player, controls, layers, media) {
-			var 
+			var
 				t = this,
 				op = t.options,
 				cl_play = 'mejs-play',
 				cl_pause= 'mejs-pause',
 				body = $('body'),
-				play = 
+				play =
 				$('<div class="mejs-button mejs-playpause-button mejs-play" >' +
 					'<button type="button" aria-controls="' + t.id + '" title="' + op.playText + '"></button>' +
 				'</div>')
@@ -39,7 +39,7 @@
 			function togglePlayPause(which) {
 				var sec = media.currentTime;
 
-				if ('play' == which) {
+				if ('play' === which) {
 					play.removeClass(cl_play).addClass(cl_pause);
 					body.removeClass(cl_play).addClass(cl_pause);
 					btn_play.attr('title', op.pauseText);
@@ -49,7 +49,7 @@
 					btn_play.attr('title', op.playText);
 				}
 
-			};
+			}
 			togglePlayPause('pse');
 
 

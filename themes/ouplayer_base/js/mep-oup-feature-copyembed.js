@@ -29,7 +29,7 @@
 			//preventDefault: https://bugs.webkit.org/show_bug.cgi?id=22691
 			//http://stackoverflow.com/questions/5797539/jquery-select-all-text-from-a-textarea
 				embed.mouseup(function(e) {
-					if(typeof e.preventDefault!=='undefined'){ e.preventDefault() }
+					if (typeof e.preventDefault !== 'undefined') { e.preventDefault(); }
         			// Prevent further mouseup intervention
         			//embed.unbind("mouseup");
         			//return false;

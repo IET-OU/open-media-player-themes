@@ -19,9 +19,7 @@ before_script:
 
 script:
   - composer validate --no-interaction
-  - composer phplint
-  - composer phpcs
-  #- composer jshint
-  #- composer csslint
+  # Run all lint tests.
+  - composer test
 
 #End.

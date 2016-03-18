@@ -22,6 +22,7 @@ module.exports = function (grunt) {
 					// None!
 				},
 				ignores: [
+					'**/mep-oup-feature-progress.js',
 					'**/mep-feature-fullscreen.js',
 					'**/mep-feature-tracks.js',
 					'**/mep-player.js',
@@ -30,12 +31,7 @@ module.exports = function (grunt) {
 			},
 			themes: 'themes/**/*.js',
 			grunt:  'Gruntfile.js'
-		},
-
-		nggettext_extract: { },
-		nggettext_compile: { },
-		msgInitMerge: { },
-		sass: { }
+		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');

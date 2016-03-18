@@ -33,7 +33,7 @@
 
 			btn_cc.click(function() {
 
-				if (player.selectedTrack==null) {
+				if (player.selectedTrack === null) {
 					//player.captions.show();
 					player.selectedTrack = track; //player.tracks[0];
 					player.captions.attr('lang', track.srclang);

@@ -53,7 +53,7 @@
 					opts_visible = !opts_visible;
 
 					return false;
-				};
+				}
 
 				btn_xo.click(toggleOptionsMenu);
 		}

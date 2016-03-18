@@ -44,7 +44,7 @@
 				  		tip.removeClass('hide').addClass('show');
 				  		tip.html(tg.title);
 				  		// Woops, Ender & jQuery disagree for 'top' - .height() maybe?
-						offY = typeof $.ender=='undefined' ? op.tooltipOffsetY : op.tooltipOffsetY - 6; //10?
+						offY = (typeof $.ender === 'undefined') ? op.tooltipOffsetY : op.tooltipOffsetY - 6; //10?
 						tip.css('top', (offset.top - tip.height() - offY) +'px');
 						left = offset.left;
 						if (left + tip.width() >= body_width) {
@@ -52,7 +52,7 @@
 						}
 						tip.css('left', left +'px');
 
-						$.log('Tooltip show..')
+						$.log('Tooltip show..');
 					  }
 					  tip_visible = ! tip_visible;
 
@@ -70,7 +70,7 @@
 
 			$('button,.oup-mejs-link a').mouseover( function(e){
 				//IF op.tooltipEvents contains 'mouseover', return
-				if (op.tooltipEvents.indexOf('mouse') != -1) return;
+				if (op.tooltipEvents.indexOf('mouse') !== -1) return;
 				is_mouse = true;
 			});
 			$('button,.oup-mejs-link a').mouseout( function(e){

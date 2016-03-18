@@ -192,7 +192,7 @@ h1 {
 #oup-noscript.hide, .error.hide {
 	display:none;
 	}
-.oup.--no-flash .mejs-controls, .--no-flash .mejs-title-panel{ display:none; }
+.oup.X-no-flash .mejs-controls, .X-no-flash .mejs-title-panel { display:none; }
 
 
 .mejs-container button	{

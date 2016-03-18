@@ -12,7 +12,7 @@ http://hardlikesoftware.com/projects/HCMtest.html
 */
 (function($) {
 
-function oup_detect_ignore_color(){
+function oup_detect_ignore_color() {
   /*
     The following code detects high contrast mode.
     It works because in high contrast mode the reported background color will not
@@ -26,13 +26,13 @@ function oup_detect_ignore_color(){
   , testcolor = hcm.css("background-color").toLowerCase()
   ;
   // different browsers return the color in different ways - beware spaces!
-  mejs.isIgnoreColor = (testcolor != "#878787" && testcolor != "rgb(135, 135, 135)");
+  mejs.isIgnoreColor = (testcolor !== "#878787" && testcolor !== "rgb(135, 135, 135)");
   if (mejs.isIgnoreColor) {
     hcmclass = "ignore-color";
   }
   body.removeClass('ignore-color no-ignore-color').addClass(hcmclass);
   $.log('> '+hcmclass);
-};
+}
 // Resize event seems to be fired on change to/from Windows high-contrast.
 $(window).resize(oup_detect_ignore_color);
 

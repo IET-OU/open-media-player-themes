@@ -30,7 +30,7 @@
 		} else {
 			//$(el).trigger();
 		}
-	}
+	};
 
 
 	if (typeof $.ender === 'undefined') {
@@ -71,7 +71,7 @@
 			controls.group = function () {
 				var t = this;
 				return typeof t.oup_group==='undefined' ? t : t.oup_group;
-			}
+			};
 
 
 			// Reset current time at 'ended' - Video/ MSIE(8), [Ltsredmine:6987]
@@ -140,7 +140,7 @@
 				body.removeClass(small).addClass(medium).removeClass(large);
 			}
 			$.log('>> check_size, width px: '+body.width());
-		};
+		}
 		$(window).resize(oup_check_size);
 		oup_check_size();
 

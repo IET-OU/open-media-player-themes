@@ -15,13 +15,14 @@ Install and test using Git and [Composer][],
 ```sh
     git clone https://github.com/IET-OU/open-media-player-themes
     composer install
+    composer npm-install
     composer test
 ```
 
 ---
 License:  [MIT][]
 
-© 2011-2015 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
+© 2011-2016 [The Open University][ou] and contributors. ([Institute of Educational Technology][iet])
 [![IET][iet-logo]][iet]
 
 

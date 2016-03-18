@@ -45,7 +45,6 @@
       ],
       "grunt": "grunt",
       "npm-install": [
-        "# npm install -g jshint  # npm install jshint-stylish",
         "npm install -g grunt-cli",
         "npm install grunt grunt-contrib-jshint grunt-contrib-csslint"
       ],

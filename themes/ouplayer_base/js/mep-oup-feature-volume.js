@@ -71,7 +71,7 @@
 
 			btn_quieter.click(function() {
 				//#1369, Flash volume is at 1 (10) prior to media loading/buffering.
-				if (media.pluginType !== 'native' && 0 == media.currentTime) return;
+				if (media.pluginType !== 'native' && 0 === media.currentTime) return;
 
 				var v = media.volume;
 				// Prevent '-1' volume and "Uncaught Error: INDEX_SIZE_ERR: DOM Exception 1" (was 0)

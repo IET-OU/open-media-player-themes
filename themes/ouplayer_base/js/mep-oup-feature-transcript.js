@@ -23,7 +23,7 @@
 				tscript = $('#'+op.transcriptId);
 
 			// Return early if no transcript is flagged.
-			if (0 == tscript.length) {
+			if (0 === tscript.length) {
 				$.log('Warning: no transcript.');
 				return;
 			}

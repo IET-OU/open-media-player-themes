@@ -130,7 +130,8 @@ Circa line (136) 198 - mep-feature-fullscreen.js
 			function myClearTimeout() {
 				if (hideTimeout !== null) {
 					clearTimeout(hideTimeout);
-					delete hideTimeout;
+					hideTimeout = null;
+					//Was: delete hideTimeout;
 				}
 			}
 		}

@@ -24,16 +24,16 @@
 					'<span class="mejs-time-loaded"></span>'+
 					'<span class="mejs-time-current"></span>'+
 					'<span class="mejs-time-handle"></span>'+
-					'<span class="mejs-time-float">' + 
-						'<span class="mejs-time-float-current">00:00</span>' + 
-						'<span class="mejs-time-float-corner"></span>' + 
+					'<span class="mejs-time-float">' +
+						'<span class="mejs-time-float-current">00:00</span>' +
+						'<span class="mejs-time-float-corner"></span>' +
 					'</span>'+
 				'</span>'+
 			'</div>')
 				.appendTo(controls);
 				controls.find('.mejs-time-buffering').hide();
 
-			var 
+			var
 //ou-specific
 				t = this,
 				op = t.options,
@@ -76,7 +76,7 @@
 
 //ou-specific
 				var handleKeyMove = function(sec, e) {
-					if (-1 == sec) {
+					if (-1 === sec) {
 						media.pause();
 						media.setCurrentTime(media.duration - 2);
 					} else {
@@ -226,8 +226,8 @@ jQuery.event.add.elemData.handle.eventHandle
 				updateSlider(e);
 
 			}, false);
-			
-			
+
+
 			// store for later use
 			t.loaded = loaded;
 			t.total = total;
@@ -239,13 +239,13 @@ jQuery.event.add.elemData.handle.eventHandle
 			var
 				t = this,
 				target = (e != undefined) ? e.target : t.media,
-				percent = null;			
+				percent = null;
 
 			// newest HTML5 spec has buffered array (FF4, Webkit)
 			if (target && target.buffered && target.buffered.length > 0 && target.buffered.end && target.duration) {
-				// TODO: account for a real array with multiple values (only Firefox 4 has this so far) 
+				// TODO: account for a real array with multiple values (only Firefox 4 has this so far)
 				percent = target.buffered.end(0) / target.duration;
-			} 
+			}
 			// Some browsers (e.g., FF3.6 and Safari 5) cannot calculate target.bufferered.end()
 			// to be anything other than 0. If the byte count is available we use this instead.
 			// Browsers that support the else if do not seem to have the bufferedBytes value and
@@ -270,12 +270,12 @@ jQuery.event.add.elemData.handle.eventHandle
 		setCurrentRail: function() {
 
 			var t = this;
-		
+
 			if (t.media.currentTime != undefined && t.media.duration) {
 
 				// update bar and handle
 				if (t.total && t.handle) {
-					var 
+					var
 						newWidth = t.total.width() * t.media.currentTime / t.media.duration,
 						handlePos = newWidth - (t.handle.outerWidth(true) / 2);
 
@@ -284,6 +284,6 @@ jQuery.event.add.elemData.handle.eventHandle
 				}
 			}
 
-		}	
+		}
 	});
 })(mejs.$);
