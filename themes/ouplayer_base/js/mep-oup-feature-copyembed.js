@@ -3,7 +3,7 @@
 * Copyright 2012 The Open University.
 * Author: Nick Freear, 2012-04-22.
 */
-(function($) {
+(function($, W) {
 
 	$.extend(mejs.MepDefaults, {
 		embedcodeId: null
@@ -21,7 +21,7 @@
 			}
 
 			embed.bind('focus click', function(ev){
-				var el=document.getElementById(op.embedcodeId);
+				var el = W.document.getElementById(op.embedcodeId);
 				//$this = $(this);
     			el.select();
 
@@ -39,4 +39,4 @@
 		}
 	});
 
-})(mejs.$);
+})(mejs.$, window);

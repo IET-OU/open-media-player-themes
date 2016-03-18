@@ -10,7 +10,7 @@ http://stackoverflow.com/questions/1921047/how-to-check-if-user-is-in-high-contr
 http://hardlikesoftware.com/weblog/2009/11/04/css-sprites-vs-high-contrast-mode/
 http://hardlikesoftware.com/projects/HCMtest.html
 */
-(function($) {
+(function($, W) {
 
 function oup_detect_ignore_color() {
   /*
@@ -36,7 +36,7 @@ function oup_detect_ignore_color() {
 // Resize event seems to be fired on change to/from Windows high-contrast.
 $(window).resize(oup_detect_ignore_color);
 
-$(document).ready(function(){
+$(function(){
   oup_detect_ignore_color();
 
   //? http://darcyclarke.me/development/detect-attribute-changes-with-jquery/
@@ -46,7 +46,7 @@ $(document).ready(function(){
   */
 
   // Experimental: works when MSIE/Mozilla enter 'ignore colour' mode (and Mozilla leaves).
-  setInterval(oup_detect_ignore_color, 5000);
+  W.setInterval(oup_detect_ignore_color, 5000);
 });
 
-})(mejs.$);
+})(mejs.$, window);

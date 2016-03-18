@@ -3,7 +3,7 @@
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
-(function($) {
+(function($, W) {
 
 	$.extend(mejs.MepDefaults, {
 		qualityText: 'Quality',
@@ -30,7 +30,7 @@
 				.click(function(e) {
 					e.preventDefault();
 
-				    alert("High definition: not yet functional!");
+				  W.alert("High definition: not yet functional!");
 
 					return false;
 				});
@@ -38,4 +38,4 @@
 		}
 	});
 
-})(mejs.$);
+})(mejs.$, window);

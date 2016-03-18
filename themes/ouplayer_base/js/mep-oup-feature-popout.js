@@ -3,7 +3,7 @@
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
-(function($) {
+(function($, W) {
 
 	$.extend(mejs.MepDefaults, {
 		popoutText: 'Pop out player',
@@ -11,8 +11,8 @@
 		popoutTarget: '_blank', //(valid browsing context name|_blank|_top)
 		popoutUrl: '#',
 		popoutParams: [
-			'height=' + screen.height,
-			'width=' + screen.width,
+			'height=' + W.screen.height,
+			'width=' + W.screen.width,
 			//NO msie9: 'fullscreen=1',
 			'resizable=1',
 			'location=1',
@@ -32,7 +32,7 @@
 
 			// Android and iOS: popout player is not relevant.
 			// OR, no popoutUrl..
-			if (mejs.MediaFeatures.hasTouch || '#'===op.popoutUrl /*&& this.options.hideVolumeOnTouchDevices*/ )
+			if (mejs.MediaFeatures.hasTouch || '#' === op.popoutUrl /*&& this.options.hideVolumeOnTouchDevices*/ )
 				return;
 
 			var
@@ -45,9 +45,9 @@
 				.click(function(e) {
 					e.preventDefault();
 
-					if('#'===op.popoutUrl) {
+					if('#' === op.popoutUrl) {
 
-				    	alert("OU pop out player: missing 'popoutUrl' !");
+				    W.alert("OU pop out player: missing 'popoutUrl' !");
 
 						return false;
 					}
@@ -83,4 +83,4 @@
 		}
 	});
 
-})(mejs.$);
+})(mejs.$, window);

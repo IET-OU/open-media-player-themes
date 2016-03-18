@@ -3,7 +3,8 @@
 * Copyright 2012 The Open University.
 * Author: Nick Freear.
 */
-(function ($) {
+(function ($, W) {
+  'use strict';
 
 	/*$.log = function (s) {if (typeof console === 'object' && $.oup_debug) {console.log(arguments.length <= 1 ? s : arguments); } }*/
 
@@ -14,7 +15,8 @@
 	*/
 	$.oup_fire = function (el, type) { //, data) {
 		var event,
-			d=document;
+			d = W.document;
+
 		if (d.createEvent) {
 			event = d.createEvent("Event"); //HTMLEvents.
 			event.initEvent(type, true, true);
@@ -124,7 +126,7 @@
 		}
 	});
 
-	$(document).ready(function () {
+	$(function () {
 		// Set a flag for narrow/ standard/ wide players (POPUP = wide).
 		var body = $('body'),
 			small = 'width-small',
@@ -147,4 +149,4 @@
 		//$.log(mejs.MepOptions);
 	});
 
-})(mejs.$);
+})(mejs.$, window);
