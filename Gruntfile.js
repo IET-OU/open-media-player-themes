@@ -11,10 +11,21 @@ module.exports = function (grunt) {
 			},
 			strict: 'themes/**/*.css'
 		},
+		jscs: {
+			options: {
+				//preset: 'idiomatic'
+				requireCurlyBraces: [ 'if' ]
+			},
+			themes: '<%= jshint.themes %>'
+		},
 		jshint: {
 			options: {
 				//curly: true,
 				eqeqeq: true,
+				freeze: true,
+				funcscope: true,
+				futurehostile: true,
+				//latedef: true,
 				laxcomma: true,
 				nocomma: true,
 				//strict: true,
@@ -31,16 +42,15 @@ module.exports = function (grunt) {
 					'**/mep-oup-feature-progress.js',
 					'**/mep-feature-fullscreen.js',
 					'**/mep-feature-tracks.js',
-					'**/mep-player.js',
-					'**/xdr.js',
-					'**/*.min.js'
+					'**/mep-player.js'
 				]
 			},
-			themes: 'themes/**/*.js',
+			themes: 'themes/**/js/*.js',
 			grunt:  'Gruntfile.js'
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 

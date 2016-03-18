@@ -1,0 +1,31 @@
+# reports - https://codeclimate.com/github/IET-OU/open-media-player-themes
+---
+engines:
+  csslint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+      #- php
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: false
+    config:
+      standard: "PSR1,PSR2"
+  phpmd:
+    enabled: false
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  #- "**.php"
+exclude_paths:
+  - "themes/**/build/*"
+  - "vendor/**/*"
+
+#End.
