@@ -5,7 +5,7 @@
   "homepage": "http://iet-ou.github.io/open-media-player/",
   "type": "library",
   "license": "MIT",
-  "minimum-stability": "alpha",
+  "minimum-stability": "dev",
   "time": "2012-04-11",
   "authors": [
     { "name": "Nick Freear (@nfreear)", "role": "developer" },
@@ -16,9 +16,10 @@
     "source": "https://github.com/IET-OU/open-media-player-themes"
   },
   "require": {
-    "iet-ou/open-media-player-core": "^2.0"
+    "iet-ou/open-media-player-core": "dev-master"
   },
   "require-dev": {
+    "squizlabs/php_codesniffer": "^2.5",
     "jakub-onderka/php-parallel-lint": "^0.9.2"
   },
   "autoload": {
@@ -26,8 +27,33 @@
       "IET_OU\\Open_Media_Player\\": [ "themes" ]
     }
   },
-  "repositories": [],
+  "repositories": [
+    { "type": "composer", "url": "https://embed.open.ac.uk/iet-satis/" }
+  ],
   "scripts": {
-      "grep-ci": "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*"
+      "grep-ci": "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*",
+      "phplint": "./vendor/bin/parallel-lint --exclude vendor .",
+      "phpcs": [
+        "phpcs --standard=./vendor/iet-ou/open-media-player-core/phpcs.xml -v -n --encoding=utf-8 --extensions=php themes/*"
+      ],
+      "phpcs-warn": [
+        "phpcs --standard=./vendor/iet-ou/open-media-player-core/phpcs.xml --encoding=utf-8 --extensions=php themes/*"
+      ],
+      "csslint": "grunt csslint:lax",
+      "jshint": [
+        "grunt jshint:themes", "grunt jshint:grunt"
+      ],
+      "grunt": "grunt",
+      "npm-install": [
+        "# npm install -g jshint  # npm install jshint-stylish",
+        "npm install -g grunt-cli",
+        "npm install grunt grunt-contrib-jshint grunt-contrib-csslint"
+      ],
+      "test": [
+        "composer phplint", "composer phpcs", "composer jshint", "composer csslint"
+      ],
+      "versions": [
+        "printf 'node: '; node --version; printf 'npm: '; npm --version; grunt --version"
+      ]
   }
 }

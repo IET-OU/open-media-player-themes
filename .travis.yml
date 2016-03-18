@@ -1,0 +1,27 @@
+# see http://about.travis-ci.org/docs/user/languages/php/
+language: php
+php:
+  - 5.6
+
+git:
+  depth: 5
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install
+  - composer npm-install
+
+before_script:
+  - composer --version
+  - composer versions
+
+script:
+  - composer validate --no-interaction
+  - composer phplint
+  - composer phpcs
+  #- composer jshint
+  #- composer csslint
+
+#End.
