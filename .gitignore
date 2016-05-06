@@ -6,3 +6,10 @@ node_modules/*
 config/*
 
 .editorconfig
+
+*.json
+*.map
+*-z*
+
+
+#End.

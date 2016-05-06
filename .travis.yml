@@ -7,7 +7,9 @@ git:
   depth: 5
 
 before_install:
+  - composer echo-versions
   - composer self-update
+  - npm install -g npm
 
 install:
   - composer install
@@ -19,6 +21,7 @@ before_script:
 
 script:
   - composer validate --no-interaction
+  - composer build-theme
   # Run all lint tests.
   - composer test
 
