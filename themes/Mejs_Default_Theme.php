@@ -94,6 +94,7 @@ class Mejs_Default_Theme extends Media_Player_Theme
             // Safer for MSIE 8 - is it? (Fullscreen hover JS feature.)
             $this->jslib = 'jquery';
         }
+
         // At present, Ender can't parse a captions track ("Full support for Ender.js.." is in the Mediaelement readme).
         if ('ender' == $this->jslib) {
             $player->caption_url = null;

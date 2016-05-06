@@ -4,13 +4,12 @@ module.exports = function (grunt) {
 	var uglify_theme = grunt.file.readJSON('uglify-theme.json');
 
 	grunt.initConfig({
-		PSR2_C: './vendor/iet-ou/open-media-player-core/phpcs.xml',
+		PSR2C: '--standard=./vendor/iet-ou/open-media-player-core/phpcs.xml -vn',
 
 		exec: {
 			grep_ci: "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*",
-			phpcs:   'phpcs --standard=<%= PSR2_C %> -n --encoding=utf-8 --extensions=php themes/* && echo OK',
-			phpcs_b: 'phpcs --standard=PSR2 -n bin/* && echo OK b',
-			phplint: './vendor/bin/parallel-lint --exclude vendor .',
+			phpcs:   'vendor/bin/phpcs <%= PSR2C %> --encoding=utf-8 --extensions=php themes/* bin/*',
+			phplint: 'vendor/bin/parallel-lint --exclude vendor .',
 			versions:"printf 'node: '; node --version; printf 'npm: '; npm --version; grunt --version"
 		},
 
@@ -81,8 +80,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-validate-xml');
+	//Was: grunt.loadNpmTasks('grunt-contrib-validate-xml');
 
-  grunt.registerTask('phpcs', [ 'exec:phpcs', 'exec:phpcs_b' ]);
-	grunt.registerTask('default', [ 'exec:phplint', 'phpcs', 'csslint:lax', 'jshint' ]);
+	grunt.registerTask('default', [ 'exec:phplint', 'exec:phpcs', 'csslint:lax', 'jshint' ]);
 };

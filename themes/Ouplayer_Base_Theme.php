@@ -132,6 +132,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         if (! $player->is_player('vle')) {
             $this->player_embed_code = $this->config_item('player_embed_code');
         }
+
         if ($this->player_embed_code) {
           // Experimental feature: select/copy embed code.
             $this->features .= ',oup_copyembed';
@@ -176,6 +177,7 @@ class Ouplayer_Base_Theme extends Mejs_Default_Theme
         if ('0' === $param_banner or preg_match($REGEX, $http_referer)) {
             $this->has_banner = false;
         }
+
         if ('1' === $param_banner) {
         //OR $this->CI->_is_popup()
             $this->has_banner = true;
