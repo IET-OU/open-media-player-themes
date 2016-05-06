@@ -27,6 +27,9 @@
       "IET_OU\\Open_Media_Player\\": [ "themes" ]
     }
   },
+  "repositories": [
+    { "type": "composer", "url": "https://embed.open.ac.uk/iet-satis/" }
+  ],
   "scripts": {
     "build": [ "php bin/build.php", "grunt uglify:theme" ],
     "npm-install": [
