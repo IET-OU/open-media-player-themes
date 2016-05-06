@@ -16,9 +16,8 @@ install:
 
 script:
   - composer validate --no-interaction
-  # Run all lint tests.
+  # Build and run tests.
   - composer test
-  - composer build
 
 after_script:
   - composer --version

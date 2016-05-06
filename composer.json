@@ -36,6 +36,6 @@
       "npm install -g grunt-cli",
       "npm install grunt grunt-exec grunt-contrib-validate-xml grunt-contrib-jshint grunt-contrib-csslint grunt-jscs grunt-contrib-uglify"
     ],
-    "test": "grunt"
+    "test": [ "composer build", "grunt" ]
   }
 }
