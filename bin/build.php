@@ -15,6 +15,8 @@ define('OMP_BUILD_COMMENTS', false); # Was: 'some'
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+\IET_OU\Open_Media_Player\Base::$throw_no_framework = false;
+
 $theme = new \IET_OU\Open_Media_Player\Ouplayer_Base_Theme();
 
 $json = getUglifyJson($theme->getJavascripts(), $theme->getJsMin());
