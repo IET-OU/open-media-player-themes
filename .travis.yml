@@ -7,22 +7,21 @@ git:
   depth: 5
 
 before_install:
-  - composer echo-versions
-  - composer self-update
-  - npm install -g npm
+  - composer self-update --preview
+  - npm install npm -g
 
 install:
   - composer install
   - composer npm-install
 
-before_script:
-  - composer --version
-  - composer versions
-
 script:
   - composer validate --no-interaction
-  - composer build-theme
   # Run all lint tests.
   - composer test
+  - composer build
+
+after_script:
+  - composer --version
+  - grunt exec:versions
 
 #End.

@@ -19,7 +19,7 @@
     "iet-ou/open-media-player-core": "^2.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^2.5",
+    "squizlabs/php_codesniffer": "^2.6",
     "jakub-onderka/php-parallel-lint": "^0.9.2"
   },
   "autoload": {
@@ -31,34 +31,11 @@
     { "type": "composer", "url": "https://embed.open.ac.uk/iet-satis/" }
   ],
   "scripts": {
-    "grep-ci": "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*",
-    "phplint": "./vendor/bin/parallel-lint --exclude vendor .",
-    "phpcs": [
-      "phpcs --standard=./vendor/iet-ou/open-media-player-core/phpcs.xml -n --encoding=utf-8 --extensions=php themes/* && echo OK",
-      "phpcs --standard=PSR2 -n bin/* && echo OK 2"
+    "build": [ "php bin/build.php", "grunt uglify:theme" ],
+    "npm-install": [
+      "npm install -g grunt-cli",
+      "npm install grunt grunt-exec grunt-contrib-validate-xml grunt-contrib-jshint grunt-contrib-csslint grunt-jscs grunt-contrib-uglify"
     ],
-      "phpcs-warn": [
-        "phpcs --standard=./vendor/iet-ou/open-media-player-core/phpcs.xml --encoding=utf-8 --extensions=php themes/*"
-      ],
-      "build-theme": [
-        "php bin/build.php",
-        "grunt uglify:theme"
-      ],
-      "csslint": "grunt csslint:lax",
-      "jshint": [
-        "grunt jshint:themes", "grunt jshint:grunt"
-      ],
-      "jscs": "grunt jscs",
-      "grunt": "grunt",
-      "npm-install": [
-        "npm install -g grunt-cli",
-        "npm install grunt grunt-contrib-jshint grunt-contrib-csslint grunt-jscs grunt-contrib-uglify"
-      ],
-      "test": [
-        "composer phplint", "composer phpcs", "composer jshint", "composer csslint"
-      ],
-      "echo-versions": [
-        "printf 'node: '; node --version; printf 'npm: '; npm --version; grunt --version"
-      ]
+    "test": "grunt"
   }
 }

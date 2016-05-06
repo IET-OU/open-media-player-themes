@@ -1,21 +1,18 @@
 module.exports = function (grunt) {
 	'use strict';
 
-	/*var uglify_config = 'uglify-theme.json';
-
-	try {
-		var fs = require('fs');
-		var uglify_theme = JSON.parse(fs.readFileSync(uglify_config, 'utf8'));
-	} catch (ex) {
-		console.error("Can't read file :( " + uglify_config);
-		console.error(ex);
-		return false;
-	}*/
-
 	var uglify_theme = grunt.file.readJSON('uglify-theme.json');
 
 	grunt.initConfig({
-		//uglify_config: uglify_config,
+		PSR2_C: './vendor/iet-ou/open-media-player-core/phpcs.xml',
+
+		exec: {
+			grep_ci: "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*",
+			phpcs:   'phpcs --standard=<%= PSR2_C %> -n --encoding=utf-8 --extensions=php themes/* && echo OK',
+			phpcs_b: 'phpcs --standard=PSR2 -n bin/* && echo OK b',
+			phplint: './vendor/bin/parallel-lint --exclude vendor .',
+			versions:"printf 'node: '; node --version; printf 'npm: '; npm --version; grunt --version"
+		},
 
 		csslint: {
 			lax: {
@@ -26,6 +23,7 @@ module.exports = function (grunt) {
 			},
 			strict: 'themes/**/*.css'
 		},
+
 		jscs: {
 			options: {
 				//preset: 'idiomatic'
@@ -33,6 +31,7 @@ module.exports = function (grunt) {
 			},
 			themes: '<%= jshint.themes %>'
 		},
+
 		jshint: {
 			options: {
 				//curly: true,
@@ -64,30 +63,26 @@ module.exports = function (grunt) {
 			themes: 'themes/**/js/*.js',
 			grunt: {
 				files: { src: 'Gruntfile.js' },
-				options: {
-					globals: { module: false, require: false, console: false }
-				}
+				options: { node: true }
 			}
+		},
+
+		validate_xml: {
+			html: 'themes/mejs_*/**/*.php'
 		},
 
 		uglify: {
 			theme: uglify_theme
-			/*theme: {
-				files: uglify_files,
-				options: {
-					compress: true,
-					mangle: false,
-					maxLineLen: 640,
-					preserveComments: 'some'
-				}
-			}*/
 		}
 	});
 
+  grunt.loadNpmTasks('grunt-exec');
 	grunt.loadNpmTasks('grunt-jscs');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-csslint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-validate-xml');
 
-	grunt.registerTask('default', [ 'csslint:lax', 'jshint' ]);
+  grunt.registerTask('phpcs', [ 'exec:phpcs', 'exec:phpcs_b' ]);
+	grunt.registerTask('default', [ 'exec:phplint', 'phpcs', 'csslint:lax', 'jshint' ]);
 };
