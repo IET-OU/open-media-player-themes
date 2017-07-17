@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 
 		exec: {
 			grep_ci: "grep -nri -e '>CI' -e 'CI->' -e '$CI' --exclude Base.php -- themes/*",
-			phpcs:   'vendor/bin/phpcs <%= PSR2C %> --encoding=utf-8 --extensions=php themes/* bin/*',
+			phpcs:   'vendor/bin/phpcs <%= PSR2C %> --encoding=utf-8 --extensions=php themes bin',
 			phplint: 'vendor/bin/parallel-lint --exclude vendor .',
 			versions:"printf 'node: '; node --version; printf 'npm: '; npm --version; grunt --version"
 		},

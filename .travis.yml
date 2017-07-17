@@ -22,7 +22,8 @@ script:
   - composer test
 
 after_script:
-  - composer --version
-  - grunt exec:versions
+  #- composer --version
+  #- grunt exec:versions
+  cat uglify-theme-json
 
 #End.
