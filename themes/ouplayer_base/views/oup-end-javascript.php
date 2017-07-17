@@ -143,8 +143,7 @@ $.ouplayer = new mejs.MediaElementPlayer('#player1'<?php //document.getElementBy
 
   },
   error: function(ex) {
-    $.log("MEP/OUP: error");
-    $.log(ex);
+    window.console.error("MEP/OUP: error", ex);
   }
 
 });
